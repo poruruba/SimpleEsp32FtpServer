@@ -80,6 +80,7 @@ void FtpServer::iniVariables(){
 void FtpServer::setFile(const char *fname, unsigned long size){
   strcpy( file_name, fname );
   file_buffer_size = size;
+  getLocalTime(&file_timeInfo);
 }
 
 FTP_F_STATUS FtpServer::handleFTP(){

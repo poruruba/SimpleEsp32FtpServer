@@ -41,6 +41,10 @@ void FtpServer::data_println(String text){
   data.println(text);
 }
 
+void FtpServer::begin(unsigned char *p_buffer, unsigned long length){
+  begin("anonymous", "", p_buffer, length);
+}
+
 void FtpServer::begin(String uname, String pword, unsigned char *p_buffer, unsigned long length){
   file_buffer = p_buffer;
   file_buffer_length = length;
@@ -216,7 +220,7 @@ boolean FtpServer::userPassword(){
   if( strcmp( command, "PASS" )){
     client_println( "500 Syntax error");
   }else
-  if( strcmp( parameters, _FTP_PASS.c_str() )){
+  if(  _FTP_PASS != "" && strcmp( parameters, _FTP_PASS.c_str() )){
     client_println( "530 ");
   }else{
 #ifdef FTP_DEBUG

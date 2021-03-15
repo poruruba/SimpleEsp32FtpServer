@@ -2,8 +2,8 @@
 #include <WiFi.h>
 #include "ESP32FtpServer.h"
 
-const char *wifi_ssid = "yWiFiƒAƒNƒZƒXƒ|ƒCƒ“ƒg‚ÌSSIDz";
-const char *wifi_password = "yWiFiƒAƒNƒZƒXƒ|ƒCƒ“ƒg‚ÌƒpƒXƒ[ƒhz";
+const char *wifi_ssid = "ã€WiFiã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆã®SSIDã€‘";
+const char *wifi_password = "ã€WiFiã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€‘";
 
 FtpServer ftpSrv;   //set #define FTP_DEBUG in ESP32FtpServer.h to see ftp verbose on serial
 
@@ -32,6 +32,7 @@ void setup() {
 
   configTzTime("JST-9", "ntp.nict.jp", "ntp.jst.mfeed.ad.jp");
   ftpSrv.begin("esp32","esp32", buffer, sizeof(buffer));    //username, password for ftp.  set ports in ESP32FtpServer.h  (default 21, 50009 for PASV)
+//  ftpSrv.begin(buffer, sizeof(buffer));    //anonymous for ftp.  set ports in ESP32FtpServer.h  (default 21, 50009 for PASV)
 }
 
 void loop() {

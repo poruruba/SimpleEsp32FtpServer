@@ -56,6 +56,7 @@ typedef enum{
 
 class FtpServer{
 public:
+  void    begin(unsigned char *p_buffer, unsigned long length);
   void    begin(String uname, String pword, unsigned char *p_buffer, unsigned long length);
   FTP_F_STATUS  handleFTP();
   void setFile(const char *fname, unsigned long size);

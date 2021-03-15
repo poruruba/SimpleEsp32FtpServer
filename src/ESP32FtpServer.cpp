@@ -57,6 +57,9 @@ void FtpServer::begin(String uname, String pword, unsigned char *p_buffer, unsig
   millisDelay = 0;
   cmdStatus = 0;
 
+  file_name[0] = '\0';
+  file_buffer_size = 0;
+	
   iniVariables();
 }
 
@@ -72,9 +75,6 @@ void FtpServer::iniVariables(){
 
   rnfrCmd = false;
   transferStatus = F_IDLE;  
-
-  file_name[0] = '\0';
-  file_buffer_size = 0;
 }
 
 void FtpServer::setFile(const char *fname, unsigned long size){
